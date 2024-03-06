@@ -25,22 +25,22 @@ Let's dive into coding and craft remarkable experiences! 🚀</p>
 
 <details>
   <summary><em>Milestone #2</em></summary>
-  <p>In progress</p>
+  <p>In progress...</p>
 </details>
 
 <details>
   <summary><em>Milestone #3</em></summary>
-  <p>In progress</p>
+  <p>In progress...</p>
 </details>
 
 <details>
   <summary><em>Milestone #4</em></summary>
-  <p>In progress</p>
+  <p>In progress...</p>
 </details>
 
 <details>
   <summary><em>Milestone #5</em></summary>
-  <p>In progress</p>
+  <p>In progress...</p>
 </details>
 
 <h2>About the Author</h2>
