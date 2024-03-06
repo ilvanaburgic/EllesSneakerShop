@@ -45,5 +45,5 @@ Let's dive into coding and craft remarkable experiences! 🚀</p>
 
 <h2>About the Author</h2>
 <p></p>Should you have any inquiries, feel free to reach out to me. You can contact me using the provided link below. <br></p>
-[LinkedIn](https://www.linkedin.com/in/ilvana-burgić-697840256)
+https://www.linkedin.com/in/ilvana-burgić-697840256
 
