@@ -25,7 +25,7 @@ For milestone #1, I created the frontend part of the application using HTML and 
 In the project I have 5 HTML files, 1 CSS file and 1 JavaScript file. The files are organized as follows:
 <ul>
 	<li>index.html (home page)</li>
-	<li></li>shop.html (shop page)
+	<li>shop.html (shop page)</li>
 	<li>sproduct.html (page of individual product with details)</li>
 	<li>about.html (about the application)</li>
 	<li>cart.html (cart)</li>
