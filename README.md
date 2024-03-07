@@ -19,7 +19,8 @@ Let's dive into coding and craft remarkable experiences! 🚀</p>
 
   <h4><strong>Frontend components of the application are:</strong></h4>
 <p>
-Milestone #1 <br>
+<br>
+
 For milestone #1, I created the frontend part of the application using HTML and CSS. I used JavaScript for dynamic functionalities such as "scrolling" images on the product page (sproduct.html) and for adding the add-to-cart button functionality. The cart button displays a success message and returns the user to the home page.<br>
 	
 In the project I have 5 HTML files, 1 CSS file and 1 JavaScript file. The files are organized as follows:
