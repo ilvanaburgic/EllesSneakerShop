@@ -27,7 +27,6 @@ For milestone #1, I created the frontend part of the application using HTML and 
 	<li>sproduct.html (page of individual product with details)</li>
 	<li>about.html (about the application)</li>
 	<li>cart.html (cart)</li>
-	<li>Each HTML page has a header that is the same on every page, as well as a footer that also contains the same information, including Contact, About Us, My Account, and Install App.</li>
 </ul>
 
 
