@@ -32,22 +32,30 @@ In the project I have 5 HTML files, 1 CSS file and 1 JavaScript file. The files 
 	<li>Each HTML page has a header that is the same on every page, as well as a footer that also contains the same information, including Contact, About Us, My Account, and Install App.</li>
 </ul>
 
-<br><strong>Home page contains: (index.html)</strong>
-<br>"Header section" - contains an image (logo), Home, Shop, About, Shopping.
-<br>"Hero section", which contains the "Look at the offer" button, which leads to the shop.html page.
-<br>"Featured sneakers section", which contains products.
-<br>The "Banner section" contains the "Look at the offer" button, which leads to the shop.html page.
-<br>"New arrivals section", contains products that can also be found on the shop.html page
-<br>The "Newsletter section" contains a button for SignUp, as well as space to enter an e-mail address
-<br>"Footer section", same as on all other pages! Contains Logo, Contact, About (About us - leads to about.html page, Delivery Inforamtion - leads to profile.html page), My Account (shop now - leads to shop.html page), Install App.
 
+<br><strong>Home page contains: (index.html)</strong>
+<ul>
+	<li>"Header section" - contains an image (logo), Home, Shop, About, Shopping.</li>
+	<li>"Hero section", which contains the "Look at the offer" button, which leads to the shop.html page.</li>
+	<li>"Featured sneakers section", which contains products.</li>
+	<li>The "Banner section" contains the "Look at the offer" button, which leads to the shop.html page.</li>
+	<li>"New arrivals section", contains products that can also be found on the shop.html page</li>
+	<li>The "Newsletter section" contains a button for SignUp, as well as space to enter an e-mail address</li>
+	<li>"Footer section", same as on all other pages! Contains Logo, Contact, About (About us - leads to about.html page, Delivery Inforamtion - leads to profile.html page), My Account (shop now - leads to shop.html page), Install App.	 
+    </li>
+</ul>
 
 <br><strong>Shop page contains: (shop.html)</strong>
-<br>"Header section" - contains an image (logo), Home, Shop, About, Shopping.
-<br>"Page section" - Contains an image and two titles
-<br>"Sneakers section" - Contains all products - sneakers
-<br>"Sneakers numbered section" Contains two hrefs 1 and 2
-<br>The "Newsletter section" contains a button for SignUp, as well as space to enter an e-mail address
+<ul>
+	<li>"Header section" - contains an image (logo), Home, Shop, About, Shopping.</li>
+	<li>"Sneakers section" - Contains all products - sneakers</li>
+	<li>"Page section" - Contains an image and two titles</li>
+ 	<li>"Sneakers section" - Contains all products - sneakers</li>
+  	<li>"Sneakers numbered section" Contains two hrefs 1 and 2</li>
+   	<li>The "Newsletter section" contains a button for SignUp, as well as space to enter an e-mail address</li>
+	
+</ul>
+
 
 <br><strong> Sproduct page contains: (sproduct.html)</strong>
 <br>"Header section" - contains an image (logo), Home, Shop, About, Shopping.
