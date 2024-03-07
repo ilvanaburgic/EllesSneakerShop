@@ -62,7 +62,7 @@ The "Newsletter section" contains a button for SignUp, as well as space to enter
 
 <strong>Cart page contains: (page.html)</strong>
 "Header section" - contains an image (logo), Home, Shop, About, Shopping.
-"Photo and tle section" - contains background-image and two titles, one big "Shop now" (<h1>) and paragraph "Buy smart" (<p>)
+"Photo and tle section" - contains background-image and two titles, one big "Shop now" and paragraph "Buy smart"
 "Table with item section" - contains: Remove, Image, Product, Price, Quantity, Subtotal and descriptions of everything in the cart
 "Coupon section" - contains input and button to apply coupon
 "Footer section", same as on all other pages! Contains Logo, Contact, About (About us - leads to about.html page, Delivery Inforamtion - leads to profile.html page), My Account (shop now - leads to shop.html page), Install App.
