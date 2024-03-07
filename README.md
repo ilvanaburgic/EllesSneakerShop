@@ -52,39 +52,47 @@ In the project I have 5 HTML files, 1 CSS file and 1 JavaScript file. The files 
 	<li>"Page section" - Contains an image and two titles</li>
  	<li>"Sneakers section" - Contains all products - sneakers</li>
   	<li>"Sneakers numbered section" Contains two hrefs 1 and 2</li>
-   	<li>The "Newsletter section" contains a button for SignUp, as well as space to enter an e-mail address</li>
-	
+   	<li>The "Newsletter section" contains a button for SignUp, as well as space to enter an e-mail address</li>	
 </ul>
 
 
 <br><strong> Sproduct page contains: (sproduct.html)</strong>
-<br>"Header section" - contains an image (logo), Home, Shop, About, Shopping.
-<br>"IMAGES - BIG ONE and SMALLS SECTION" - contains one large and the other 4 small images, which can be "flipped"
-<br>"SIMILAR PRODUCT SECTION" - contains 4 pictures of sneakers with names of sneakers, price
-<br>The "Newsletter section" contains a button for SignUp, as well as space to enter an e-mail address
-<br>"Footer section", same as on all other pages! Contains Logo, Contact, About (About us - leads to about.html page, Delivery Inforamt
+<ul>
+	<li>"Header section" - contains an image (logo), Home, Shop, About, Shopping.</li>
+	<li>"IMAGES - BIG ONE and SMALLS SECTION" - contains one large and the other 4 small images, which can be "flipped"</li>
+	<li>The "Newsletter section" contains a button for SignUp, as well as space to enter an e-mail address</li>
+	<li>"Footer section", same as on all other pages! Contains Logo, Contact, About (About us - leads to about.html page, Delivery Inforamtion</li>
+</ul>
 
 <br><strong>About page contains: (about.html)</strong>
-<br>"Header section" - contains an image (logo), Home, Shop, About, Shopping.
-<br>"Title section" - contains the title
-<br>"Text section" - contains text that describes about
-<br>"Footer section", same as on all other pages! Contains Logo, Contact, About (About us - leads to about.html page, Delivery Inforamtion - leads to profile.html page), My Account (shop now - leads to shop.html page), Install App.
+<ul>
+	<li>"Header section" - contains an image (logo), Home, Shop, About, Shopping.</li>
+	<li>"Title section" - contains the title</li>
+	<li>"Text section" - contains text that describes about</li>
+	<li>"Footer section", same as on all other pages! Contains Logo, Contact, About (About us - leads to about.html page, Delivery Inforamtion - leads to profile.html page), My Account (shop now - leads to shop.html page), Install App.
+    </li>
+</ul>
+
+
 
 <br><strong>Cart page contains: (page.html)</strong>
-<br>"Header section" - contains an image (logo), Home, Shop, About, Shopping.
-<br>"Photo and tle section" - contains background-image and two titles, one big "Shop now" and paragraph "Buy smart"
-<br>"Table with item section" - contains: Remove, Image, Product, Price, Quantity, Subtotal and descriptions of everything in the cart
-<br>"Coupon section" - contains input and button to apply coupon
-<br>"Footer section", same as on all other pages! Contains Logo, Contact, About (About us - leads to about.html page, Delivery Inforamtion - leads to profile.html page), My Account (shop now - leads to shop.html page), Install App.
+<ul>
+	<li>"Header section" - contains an image (logo), Home, Shop, About, Shopping.</li>
+	<li>"Photo and tle section" - contains background-image and two titles, one big "Shop now" and paragraph "Buy smart"</li>
+	<li>"Table with item section" - contains: Remove, Image, Product, Price, Quantity, Subtotal and descriptions of everything in the cart</li>
+	<li>"Coupon section" - contains input and button to apply coupon</li>
+	<li>"Footer section", same as on all other pages! Contains Logo, Contact, About (About us - leads to about.html page, Delivery Inforamtion - leads to profile.html page), My Account (shop now - leads to shop.html page), Install App. 
+    </li>
+</ul>
 
 <br><strong>Profile page contains: (profile.html)</strong>
-<br>"Header section" - contains an image (logo), Home, Shop, About, Shopping.
-<br>"Profile section" - contains Profile settings, Name, Surname, Address, PostCode, Country, Number, Email, button. Profile.html appears when we press the button on the cart.html page button is called "Proceed to checkout".
-<br>"Footer section", same as on all other pages! Contains Logo, Contact, About (About us - leads to about.html page, Delivery Inforamtion - leads to profile.html page), My Account (shop now - leads to shop.html page), Install App.
+<ul>
+	<li>"Header section" - contains an image (logo), Home, Shop, About, Shopping.</li>
+	<li>"Profile section" - contains Profile settings, Name, Surname, Address, PostCode, Country, Number, Email, button. Profile.html appears when we press the button on the cart.html page button is called "Proceed to checkout".</li>
+	<li>"Footer section", same as on all other pages! Contains Logo, Contact, About (About us - leads to about.html page, Delivery Inforamtion - leads to profile.html page), My Account (shop now - leads to shop.html page), Install App.	 
+    </li>
+</ul>
 </p>
-  <ul>
-
-  </ul>
 </details>
 
 <details>
