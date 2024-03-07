@@ -58,7 +58,7 @@ For <strong>milestone 1</strong>, I created the frontend part of the application
 	<li>"Header section" - contains an image (logo), Home, Shop, About, Shopping.</li>
 	<li>"IMAGES - BIG ONE and SMALLS SECTION" - contains one large and the other 4 small images, which can be "flipped"</li>
 	<li>The "Newsletter section" contains a button for SignUp, as well as space to enter an e-mail address</li>
-	<li>"Footer section", same as on all other pages! Contains Logo, Contact, About (About us - leads to about.html page, Delivery Inforamtion</li>
+	<li>"Footer section", same as on all other pages! Contains Logo, Contact, About (About us - leads to about.html page, Delivery Inforamtion - leads to profile.html page), My Account (shop now - leads to shop.html page), Install App.	 
 </ul>
 
 <br><strong>About page contains: (about.html)</strong>
