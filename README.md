@@ -19,62 +19,58 @@ Let's dive into coding and craft remarkable experiences! 🚀</p>
 
   <h4>Frontend components of the application are:</h4>
 <p>
-  Milestone #1  Za milestone #1 sam izradila frontend dio aplikacije koristeći HTML i CSS.Za dinamičke funkcionalnosti poput "listanja" slika na stranici s proizvodom (sproduct.html) i za dodavanje funkcionalnosti gumba za dodavanje u košaricu koristila sam JavaScript. Gumb za košaricu prikazuje poruku o uspjehu i vraća korisnika na početnu stranicu. 
-U projektu imam 5 HTML datoteka, 1 CSS datoteku i 1 JavaScript datoteku. Datoteke su organizirane na sljedeći način:
-	index.html (početna stranica)
-	shop.html (stranica trgovine)
-	sproduct.html (stranica pojedinog proizvoda s detaljima)
-	about.html (o aplikaciji)
-	cart.html (košarica)
- Na svakoj HTML stranici nalazi se zaglavlje (header) koje je isto na svakoj stranici, kao i podnožje (footer) koje također sadrži iste informacije, uključujući Kontakt, O nama, Moj račun i Instaliraj aplikaciju.
+<strong>Milestone #1</strong>
+For milestone #1, I created the frontend part of the application using HTML and CSS. I used JavaScript for dynamic functionalities such as "scrolling" images on the product page (sproduct.html) and for adding the add-to-cart button functionality. The cart button displays a success message and returns the user to the home page.<br>
+	
+In the project I have 5 HTML files, 1 CSS file and 1 JavaScript file. The files are organized as follows:
+index.html (home page)
+shop.html (shop page)
+sproduct.html (page of individual product with details)
+about.html (about the application)
+cart.html (cart)
+Each HTML page has a header that is the same on every page, as well as a footer that also contains the same information, including Contact, About Us, My Account, and Install App.
 
-Home page sadrzi: (index.html)
-"Header section" -  sadrzi sliku (logo), Home, Shop, About, Shopping.
-"Hero section" , koji sadrzi button "Look at the offer", koji vodi na shop.html page.
-"Featured sneakers section", koja sadrzi proizvode.
-"Banner section", sadrzi button "Look at the offer", koji vodi na shop.html page.
-"New arrivals section", sadrzi proizvode koji se mogu takodje pronaci na shop.html page
-"Newsletter section", sadrzi button za SignUp, te i prostor da se unese e-mail adresa
-"Footer section", isti kao i na svim ostalim stranicama! Sadrzi Logo,  Contact, About (About us -  vodi na about.html page, Delivery Inforamtion - vodi na profile.html page), My Account (shop now - vodi na shop.html page), Instal App.
-
-
-Shop page sadrzi: (shop.html)
-"Header section" -  sadrzi sliku (logo), Home, Shop, About, Shopping.
-"Page section" - Sadrzi sliku,  i dva naslova 
-"Sneakers section" - Sadrzi sve proizvode - patike
-"Sneakers numbered section" Sadrzi dva hrefa 1 i 2
-"Newsletter section", sadrzi button za SignUp, te i prostor da se unese e-mail adresa
-
-Sproduct page sadrzi: (sproduct.html)
-"Header section" -  sadrzi sliku (logo), Home, Shop, About, Shopping.
-"IMAGES - BIG ONE and SMALLS SECTION" - sadrzi slike jednu veliku i ostale 4 male, koje se mogu "listati"
-"SIMILAR PRODUCT SECTION" - sadrzi 4 slike patika sa imenima patika, cijenom
-"Newsletter section", sadrzi button za SignUp, te i prostor da se unese e-mail adresa
-"Footer section", isti kao i na svim ostalim stranicama! Sadrzi Logo,  Contact, About (About us -  vodi na about.html page, Delivery Inforamt
+<strong>Home page contains: (index.html)</strong>
+"Header section" - contains an image (logo), Home, Shop, About, Shopping.
+"Hero section", which contains the "Look at the offer" button, which leads to the shop.html page.
+"Featured sneakers section", which contains products.
+The "Banner section" contains the "Look at the offer" button, which leads to the shop.html page.
+"New arrivals section", contains products that can also be found on the shop.html page
+The "Newsletter section" contains a button for SignUp, as well as space to enter an e-mail address
+"Footer section", same as on all other pages! Contains Logo, Contact, About (About us - leads to about.html page, Delivery Inforamtion - leads to profile.html page), My Account (shop now - leads to shop.html page), Install App.
 
 
-About page sadrzi : (about.html)
-"Header section" -  sadrzi sliku (logo), Home, Shop, About, Shopping.
-"Title section" - sadrzi naslov
-"Text section" - sadrzi text, koji opisuje about 
-"Footer section", isti kao i na svim ostalim stranicama! Sadrzi Logo,  Contact, About (About us -  vodi na about.html page, Delivery Inforamtion - vodi na profile.html page), My Account (shop now - vodi na shop.html page), Instal App.
+<strong>Shop page contains: (shop.html)</strong>
+"Header section" - contains an image (logo), Home, Shop, About, Shopping.
+"Page section" - Contains an image and two titles
+"Sneakers section" - Contains all products - sneakers
+"Sneakers numbered section" Contains two hrefs 1 and 2
+The "Newsletter section" contains a button for SignUp, as well as space to enter an e-mail address
 
+<strong>Sproduct page contains: (sproduct.html)<strong>
+"Header section" - contains an image (logo), Home, Shop, About, Shopping.
+"IMAGES - BIG ONE and SMALLS SECTION" - contains one large and the other 4 small images, which can be "flipped"
+"SIMILAR PRODUCT SECTION" - contains 4 pictures of sneakers with names of sneakers, price
+The "Newsletter section" contains a button for SignUp, as well as space to enter an e-mail address
+"Footer section", same as on all other pages! Contains Logo, Contact, About (About us - leads to about.html page, Delivery Inforamt
 
+<strong>About page contains: (about.html)</strong>
+"Header section" - contains an image (logo), Home, Shop, About, Shopping.
+"Title section" - contains the title
+"Text section" - contains text that describes about
+"Footer section", same as on all other pages! Contains Logo, Contact, About (About us - leads to about.html page, Delivery Inforamtion - leads to profile.html page), My Account (shop now - leads to shop.html page), Install App.
 
+<strong>Cart page contains: (page.html)</strong>
+"Header section" - contains an image (logo), Home, Shop, About, Shopping.
+"Photo and tle section" - contains background-image and two titles, one big "Shop now" (<h1>) and paragraph "Buy smart" (<p>)
+"Table with item section" - contains: Remove, Image, Product, Price, Quantity, Subtotal and descriptions of everything in the cart
+"Coupon section" - contains input and button to apply coupon
+"Footer section", same as on all other pages! Contains Logo, Contact, About (About us - leads to about.html page, Delivery Inforamtion - leads to profile.html page), My Account (shop now - leads to shop.html page), Install App.
 
-
-Cart page sadrzi: (page.html)
-"Header section" -  sadrzi sliku (logo), Home, Shop, About, Shopping.
-"Photo i tle section" - sadrzi background-image i dva naslova, jedan veliki "Shop now" (<h1>) i paragraf "Buy smart" (<p>)
-"Table with item section" - sadrzi: Remove, Image, Product, Price, Quantity, Subtotal i opise svega što se nalazi u cartu
-"Cupon section" - sadrzi input i button da se apply cupon
-"Footer section", isti kao i na svim ostalim stranicama! Sadrzi Logo,  Contact, About (About us -  vodi na about.html page, Delivery Inforamtion - vodi na profile.html page), My Account (shop now - vodi na shop.html page), Instal App.
-
-
-Profile page sadrzi: (
-"Header section" -  sadrzi sliku (logo), Home, Shop, About, Shopping.
-"Profile section" - sadrzi Profile settings, Name, Surname, Address, PostCode, Country, Number, Email, buton. Profile.html se pojavi kada pritisnemo button na cart.html page button se zove "Proceed to checkout".
-"Footer section", isti kao i na svim ostalim stranicama! Sadrzi Logo,  Contact, About (About us -  vodi na about.html page, Delivery Inforamtion - vodi na profile.html page), My Account (shop now - vodi na shop.html page), Instal App.
+<strong>Profile page contains: (profile.html)</strong>
+"Header section" - contains an image (logo), Home, Shop, About, Shopping.
+"Profile section" - contains Profile settings, Name, Surname, Address, PostCode, Country, Number, Email, button. Profile.html appears when we press the button on the cart.html page button is called "Proceed to checkout".
+"Footer section", same as on all other pages! Contains Logo, Contact, About (About us - leads to about.html page, Delivery Inforamtion - leads to profile.html page), My Account (shop now - leads to shop.html page), Install App.
 </p>
   <ul>
 
