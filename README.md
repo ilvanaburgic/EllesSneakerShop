@@ -24,15 +24,12 @@ For milestone #1, I created the frontend part of the application using HTML and 
 	
 In the project I have 5 HTML files, 1 CSS file and 1 JavaScript file. The files are organized as follows:
 <ul>
-<li><br>index.html (home page)</li>
-<br>shop.html (shop page)
-<br>sproduct.html (page of individual product with details)
-<br>about.html (about the application)
-<br>cart.html (cart)
-<br>Each HTML page has a header that is the same on every page, as well as a footer that also contains the same information, including Contact, About Us, My Account, and Install App.
-
-
- 
+	<li>index.html (home page)</li>
+	<li></li>shop.html (shop page)
+	<li>sproduct.html (page of individual product with details)</li>
+	<li>about.html (about the application)</li>
+	<li>cart.html (cart)</li>
+	<li>Each HTML page has a header that is the same on every page, as well as a footer that also contains the same information, including Contact, About Us, My Account, and Install App.</li>
 </ul>
 
 <br><strong>Home page contains: (index.html)</strong>
