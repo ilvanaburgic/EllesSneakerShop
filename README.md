@@ -15,7 +15,7 @@ Let's dive into coding and craft remarkable experiences! 🚀</p>
 <h2>Milestones</h2>
 
 <details>
-  <summary><em>Milestone #1</em></summary>
+  <summary><strong><em>Milestone #1</em></strong></summary>
 
   <h4>Frontend components of the application are:</h4>
 <p>
