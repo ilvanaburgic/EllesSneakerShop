@@ -19,7 +19,7 @@ Let's dive into coding and craft remarkable experiences! 🚀</p>
 
   <h4>Frontend components of the application are:</h4>
 <p>
-<strong>Milestone #1</strong>
+<strong>Milestone #1</strong> <br>
 For milestone #1, I created the frontend part of the application using HTML and CSS. I used JavaScript for dynamic functionalities such as "scrolling" images on the product page (sproduct.html) and for adding the add-to-cart button functionality. The cart button displays a success message and returns the user to the home page.<br>
 	
 In the project I have 5 HTML files, 1 CSS file and 1 JavaScript file. The files are organized as follows:
@@ -47,7 +47,7 @@ The "Newsletter section" contains a button for SignUp, as well as space to enter
 "Sneakers numbered section" Contains two hrefs 1 and 2
 The "Newsletter section" contains a button for SignUp, as well as space to enter an e-mail address
 
-<strong>Sproduct page contains: (sproduct.html)<strong>
+<strong> Sproduct page contains: (sproduct.html)</strong>
 "Header section" - contains an image (logo), Home, Shop, About, Shopping.
 "IMAGES - BIG ONE and SMALLS SECTION" - contains one large and the other 4 small images, which can be "flipped"
 "SIMILAR PRODUCT SECTION" - contains 4 pictures of sneakers with names of sneakers, price
