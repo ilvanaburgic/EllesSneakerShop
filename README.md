@@ -23,12 +23,17 @@ Let's dive into coding and craft remarkable experiences! 🚀</p>
 For milestone #1, I created the frontend part of the application using HTML and CSS. I used JavaScript for dynamic functionalities such as "scrolling" images on the product page (sproduct.html) and for adding the add-to-cart button functionality. The cart button displays a success message and returns the user to the home page.<br>
 	
 In the project I have 5 HTML files, 1 CSS file and 1 JavaScript file. The files are organized as follows:
-<br>index.html (home page)
+<ul>
+<li><br>index.html (home page)</li>
 <br>shop.html (shop page)
 <br>sproduct.html (page of individual product with details)
 <br>about.html (about the application)
 <br>cart.html (cart)
 <br>Each HTML page has a header that is the same on every page, as well as a footer that also contains the same information, including Contact, About Us, My Account, and Install App.
+
+
+ 
+</ul>
 
 <br><strong>Home page contains: (index.html)</strong>
 <br>"Header section" - contains an image (logo), Home, Shop, About, Shopping.
