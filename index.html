@@ -9,308 +9,94 @@
     <title>Elles</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha384-B4dIYHKNm14HhAzFjRBDB0CrZL7y5sovTgxgVsieD95zY3+dxF1+nA6HWEX3Tv2B" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/spapp.css">
+
+    <script src="./assets/js/jquery.js"></script>
+    <script src="./assets/js/jquery.spapp.min.js"></script>
 </head>
 
 <body>
-  <!--HEADER SECTION-->
-  <section id="header"> 
-    <a href="#"><img src="Pictures/LOGO.png" class="LOGO" alt=""></a>
 
-      <div>
+<!--HEADER SECTION-->
+  <section id="header"> 
+    <header>
+      <nav role="navigation">
+
         <ul id="navbar">
-          <li><a class="active" href="index.html">Home</a></li>
-          <li><a href="shop.html">Shop</a></li>
-          <li><a href="about.html">About</a></li>
-          <li id="lg-bag"><a href="cart.html"><img src="Pictures/shoppingBag.png" alt="Shopping Bag"></a></li>
+          <img src="Pictures/LOGO.png" class="LOGO" alt="">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#shop">Shop</a></li>                         
+          <li><a href="#about">About</a></li>
+          <li><a href="#cart">Cart</a></li>
         </ul>
-      </div>
+      </nav>
+    </header> 
   </section>
 
-  <!--HERO SECTION-->
-    <section id="hero">
-      <h1>
-        Welcome to Elles!
-      </h1>
+<!--PAGE CONTENT-->    
+  <section id="pageContent">
+    <main id="spapp" role="main">
+      <section id="home" data-load="home.html"></section>
+      <section id="shop" data-load="shop.html"></section>
+      <section id="sproduct" data-load="sproduct.html"></section>
+      <section id="about" data-load="about.html"></section>
+      <section id="cart" data-load="cart.html"></section>
+      <section id="profile" data-load="profile.html"></section>
+      <section id="registration" data-load="registration.html"></section>
+    </main>
+  </section>
 
-      <h2>
-        Your go-to for the latest <br>shoe trends
-      </h2>
+<!--NEWSLETTER SECTION-->
+<section id="newsletter" class="section-p1 section-m1">
+  <div class="newtext">
+    <h4>Sign Up For Newsletters</h4>
+    <p>Get E-mail updates about our latest shop and <span>special offers</span>.</p>
+  </div>
 
-      <a href="shop.html"><button class="normal">Look at the offer</button></a>
-    </section>
+  <div class="form">
+    <input type="text" placeholder="Your email address" id="emailInput">
+    <button class="normal" onclick="subscribeNewsletter()">Sign Up</button>
+    <span id="emailMessage" class="email-error-message"></span> <!-- Mjesto za poruku ispod input polja -->
+  </div>
+</section>
 
-  <!--FEATURED SNEAKERS SECTION-->
-    <section id="product1" class="section-p1">
-      <h2>Featured sneakers</h2>
-      <p>New collection</p>
+<!--PORUKA ZA EMAIL-->
+<script>
+  function subscribeNewsletter() {
+    var email = document.getElementById('emailInput').value;
+    var messageElement = document.getElementById('emailMessage');
+    if(email && email.includes('@')) {
+      messageElement.textContent = 'Email was sent'; 
+      messageElement.style.color = 'green'; 
+    } else {
+      messageElement.textContent = 'Enter an email!'; 
+      messageElement.style.color = 'red';
+    }
+  }
+</script>
 
 
-      <div class="pro-container">
-      
-    <!--PRVE PATIKE-->
-
-        <div class="pro">
-          <img src="Pictures/sneakers.1.1.jpeg" alt="">
-          <div class="description">
-            <span>Nike</span>
-            <h5>NIKE Air Force 1 '07</h5>
-            <br> 
-            <h4>$143</h4>
-          </div>
-        </div>
-
-    <!--DRUGE PATIKE-->
-        
-        <div class="pro">
-          <img src="Pictures/Sneakers.2.1.jpeg" alt="">
-          <div class="description">
-            <span>Nike</span>
-            <h5>NIKE Air Force 1 '07</h5>
-            <br>
-            <h4>$227</h4>
-          </div>
-        </div>
-
-    <!--TRECE PATIKE-->
-        
-        <div class="pro">
-          <img src="Pictures/Sneakers.3.1.jpeg" alt="">
-          <div class="description">
-            <span>Nike</span>
-            <h5>NIKE Air Force 1 Shadow</h5>
-            <br>
-            <h4>$155</h4>
-          </div>
-        </div>
-
-    <!--CETVRTE PATIKE-->
-        
-        <div class="pro">
-          <img src="Pictures/Sneakers.4.1.jpeg" alt="">
-          <div class="description">
-            <span>Nike</span>
-            <h5>NIKE Air Max 95 Essentia</h5>
-            <br>
-            <h4>$227</h4>
-          </div>
-        </div>
-
-    <!--PETE PATIKE-->
-
-        <div class="pro">
-          <img src="Pictures/Sneakers.5.1.jpeg" alt="">
-          <div class="description">
-            <span>Nike</span>
-            <h5>NIKE Air Vapor Max Plus</h5>
-            <br>
-            <h4>$269</h4>
-          </div>
-        </div>
-
-    <!--SESTE PATIKE-->
-
-        <div class="pro">
-          <img src="Pictures/Sneakers.6.1.jpeg" alt="">
-          <div class="description">
-            <span>Nike</span>
-            <h5>NIKE Air Force 1 '07</h5>
-            <br>
-            <h4>$154</h4>
-          </div>
-        </div>
-
-    <!--SEDME PATIKE-->
+<!--FOOTER SECTION-->
+  <footer class="section-p1">
+    <a href="#"><img src="Pictures/LOGO.png" class="LOGO" alt=""></a>
   
-        <div class="pro">
-          <img src="Pictures/Sneakers.10.1.jpeg" alt="">
-          <div class="description">
-            <span>Nike</span>
-            <h5>NIKE Patike Air Max Plus</h5>
-            <br>
-            <h4>$227</h4>
-          </div>
-        </div>
-
-    <!--OSME PATIKE-->
-  
-         <div class="pro">
-          <img src="Pictures/Sneakers.8.1.jpeg" alt="">
-          <div class="description">
-            <span>Nike</span>
-            <h5>NIKE Air Force 1 '07</h5>
-            <br>
-            <h4>$158</h4>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-  <!--BANER PSECTIONAGE-->
-    <section id="banner" class=".section-m1">
-      <h2>The <span>most modern</span> sneakers on the market</h2>
-      <a href="shop.html"><button class="normal">Look at the offer</button></a>
-    </section>
-
-  <!--NEW ARRIVALS SECTION-->
-    <section id="product1" class="section-p1">
-      <h2>New Arrivals</h2>
-      <p>Summer collection</p>
-
-
-      <div class="pro-container">
-        
-    <!--PRVE PATIKE-->
-        <div class="pro">
-          <img src="Pictures/NewArrivals.5.1.jpeg" alt="">
-          <div class="description">
-            <span>Nike</span>
-            <h5>NIKE Air Max 97</h5>
-            <br>
-            <h4>$152</h4>
-          </div>
-        </div>
-
-
-    <!--DRUGE PATIKE-->
-        
-        <div class="pro">
-          <img src="Pictures/NewArrivals.1.1.jpeg" alt="">
-          <div class="description">
-            <span>Nike</span>
-            <h5>NIKE Air Force 1 '07</h5>
-            <br>
-            <h4>$183</h4>
-          </div>
-        </div>
-
-    <!--TRECE PATIKE-->
-        
-        <div class="pro">
-          <img src="Pictures/NewArrivals.6.1.jpeg" alt="">
-          <div class="description">
-            <span>Nike</span>
-            <h5>NIKE Air Max 97</h5>
-            <br>
-            <h4>$162</h4>
-          </div>
-        </div>
-
-    <!--CETVRTE PATIKE-->
-        
-        <div class="pro">
-          <img src="Pictures/NewArrivals.2.1.jpeg" alt="">
-          <div class="description">
-            <span>Nike</span>
-            <h5>NIKE Patike Air Force 1 '07</h5>
-            <br>
-            <h4>$182</h4>
-          </div>
-        </div>
-
-    <!--PETE PATIKE-->
-
-        <div class="pro">
-          <img src="Pictures/NewArrivals.7.1.jpeg" alt="">
-          <div class="description">
-            <span>Nike</span>
-            <h5>NIKE Air Max 95</h5>
-            <br>
-            <h4>$269</h4>
-          </div>
-        </div>
-
-    <!--SESTE PATIKE-->
-
-        <div class="pro">
-          <img src="Pictures/NewArrivals.3.1.jpeg" alt="">
-          <div class="description">
-            <span>Nike</span>
-            <h5>NIKE Dunk Low Retro Premium</h5>
-            <br>
-            <h4>$184</h4>
-          </div>
-        </div>
-
-    <!--SEDME PATIKE-->
-  
-        <div class="pro">
-          <img src="Pictures/Sneakers.7.1.jpeg" alt="">
-          <div class="description">
-            <span>Nike</span>
-            <h5>NIKE Air Force 1 '07</h5>
-            <br>
-            <h4>$192</h4>
-          </div>
-        </div>
-
-    <!--OSME PATIKE-->
-  
-         <div class="pro">
-          <img src="Pictures/NewArrivals.4.1.jpeg" alt="">
-          <div class="description">
-            <span>Nike</span>
-            <h5>NIKE GAMMA FORCE</h5>
-            <br>
-            <h4>$138</h4>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  <!--NEWSLETTER SECTION-->
-    <section id="newsletter" class="section-p1 section-m1">
-      <div class="newtext">
-        <h4>Sign Up For Newsletters</h4>
-        <p>Get E-mail updates about our lates shop and <span>special offers</span>.</p>
-      </div>
-
-      <div class="form">
-        <input type="text" placeholder="Your email address">
-        <button class="normal">Sign Up</button>
-      </div>
-    </section>
-
-  <!--FOOTER SECTION-->
-    <footer class="section-p1">
-      <div class="col">
-          <a href="#"><img src="Pictures/LOGO.png" class="LOGO" alt=""></a>
-        <h4>Contact</h4>
-        <p><strong>Phone:</strong> +387 60 1234 567</p>
-        <p><strong>Hours:</strong> 09:00 - 15:00. Monday - Friday</p>
-
-      <div class="follow">
-          <div class="icon">
-            <a href="#" class="fa fa-facebook"></a>
-            <a href="#" class="fa fa-twitter"></a>
-            <a href="#" class="fa fa-instagram"></a>
-            <a href="#" class="fa fa-youtube"></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col">
-        <h4>About</h4>
-        <a href="about.html">About us</a>
-        <a href="profile.html">Delivery Information</a> 
-      </div>
-
-      <div class="col">
-        <h4>My Account</h4>
-        <a href="shop.html">Shop now</a>       
-      </div>
-
-
-      <div class="col install">
-        <h4>Instal App</h4>
-        <p>From App Store or Google Play</p>
-        <div class="row">
-          <img src="Pictures/appleStore.png" alt="">
-          <img src="Pictures/googlePlay.png" alt="">
-        </div>
+    <div class="col">
+      <h4>Contact</h4>
+      <p><strong>Phone:</strong> +387 60 1234 567</p>
+      <p><strong>Hours:</strong> 09:00 - 15:00. Monday - Friday</p>
     </div>
-    </footer>
+    <div class="col">
+      <h4>About</h4>
+      <a href="#about">About us</a>
+    </div>
+  </footer>
 
-    <script src="script.js"></script>
+<script src="./assets/js/script.js"></script>
+
 </body>
 </html>

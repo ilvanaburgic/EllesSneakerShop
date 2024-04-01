@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<body>
+
+  <!--REGISTRATION SECTION-->
+  
+  <section id="registration-section">
+
+    <div class="registration-settings">
+      <h2>Registration Profile</h2>
+    </div>
+
+    <div class="Name">
+      <label>Email</label>
+      <input type="email" id="emailInput" class="form-control" placeholder="Enter your email address" value="">
+    </div>
+
+    <div class="Password">
+      <label>Password</label>
+      <input type="password" id="passwordInput" class="form-control" placeholder="Enter your password" value="">
+    </div>
+
+    <div class="button">
+      <button class="registrate-button" type="button" onclick="validateAndRedirect()">
+        Registrate
+      </button>
+    </div>
+
+  </section>
+
+
+  <!--za registration profile, da izbacuje alert ako nije dobro uneseno-->
+  <script>
+    function validateAndRedirect() {
+      var email = document.getElementById('emailInput').value;
+      var password = document.getElementById('passwordInput').value;
+
+      if (email.trim() !== "" && password.trim() !== "") {
+        localStorage.setItem('email', email);
+        localStorage.setItem('password', password);
+
+        console.log("Registered:", email); // salje podatke u konzolu
+        
+        window.location.hash = '#profile';
+      } else {
+        alert("Please enter a valid email and password!");
+      }
+    }
+  </script>
+</body>
+
+</html>
