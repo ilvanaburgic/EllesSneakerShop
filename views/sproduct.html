@@ -18,29 +18,6 @@
       <h4> <!--MODEL PATIKA--> </h4>
       <h3> <!--CIJENA--> </h3>
 
-      <select class="select-size">
-        <option disabled selected>Select Size</option>
-        <option>36</option>
-        <option>37</option>
-        <option>38</option>
-        <option>39</option>
-        <option>40</option>
-        <option>41</option>
-        <option>42</option>
-        <option>43</option>
-        <option>44</option>
-        <option>45</option>
-      </select>
-
-      <select class="select-quantity">
-        <option disabled selected>Quantity</option>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
-
       <div class="odvoji">
         <button class="normal add-to-cart">Add to cart</button>
       </div>
@@ -50,28 +27,6 @@
       </span>
     </div>
   </section>
-
-
-  <script>
-    window.onload = function () {
-      var addToCartButtons = document.querySelectorAll('.add-to-cart');
-  
-      addToCartButtons.forEach(function (button) {
-        button.addEventListener('click', function () {
-          button.textContent = 'Added!';
-          button.classList.add('success');
-          button.disabled = true;
-  
-          //tajmer za org text
-          setTimeout(function () {
-            button.textContent = 'Add to cart';
-            button.classList.remove('success');
-            button.disabled = false; 
-          }, 2000); 
-        });
-      });
-    };
-  </script>
 </body>
 
 </html>

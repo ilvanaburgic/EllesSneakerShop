@@ -26,7 +26,7 @@ var app = $.spapp({
 app.route({
   view: "sproduct",
   load: "sproduct.html",
-  onCreate: function () {  },
+  onCreate: function () { },
   onReady: function () {
     var productId = localStorage.getItem("productId");
     $.ajax({
@@ -45,6 +45,29 @@ app.route({
         } else {
           console.error('The product is not found');
         }
+
+        $('.add-to-cart').on('click', function () {
+          // Get the existing cart from localStorage
+          let cart = JSON.parse(localStorage.getItem('cart')) || [];
+          // Add the new product to the cart array
+          cart.push(product);
+          // Save the updated cart back to localStorage
+          localStorage.setItem('cart', JSON.stringify(cart));
+
+          const button = $(this);
+
+          // Change button text to indicate success
+          button.text('Added!');
+          button.addClass('success');
+          button.prop('disabled', true);
+
+          // Set a timer to revert the button back to its original state after 2 seconds
+          setTimeout(function () {
+            button.text('Add to cart');
+            button.removeClass('success');
+            button.prop('disabled', false);
+          }, 2000);
+        });
       },
       error: function (error) {
         console.error('An error occurred while retrieving data', error);
@@ -64,7 +87,7 @@ app.route({
       success: function (data) {
         const products = data.data;
         var proContainer = $('#pro-container');
-        proContainer.empty(); 
+        proContainer.empty();
 
         products.forEach(function (product) {
           var productHTML =
@@ -137,62 +160,46 @@ app.route({
   view: "cart",
   load: "cart.html",
   onReady: function () {
-    $.ajax({
-      url: 'assets/js/cart.json',
-      type: 'GET',
-      dataType: 'json',
-      success: function (products) {
-        var proContainer = $('#cart-container');
-        var totalPrice = 0; 
-        proContainer.empty(); 
+    const products = JSON.parse(localStorage.getItem('cart'));
 
-        products.forEach(function (product) {
-          var productHTML=
-          ` 
+    var proContainer = $('#cart-container');
+    var totalPrice = 0;
+    proContainer.empty();
+
+    products.forEach(function (product) {
+      var productHTML =
+        ` 
             <tr>
             <td><img src="${product.image}" alt="" ></td>
             <td> ${product.name}</td>
             <td>$ ${product.price}</td>
-            <td><input type="number" value="1" style="width: 80px;" max="4"></td>             
             <td>$ ${product.price}</td>
           </tr>
           `
-          proContainer.append(productHTML);
-          totalPrice += product.price; 
-        });
+      proContainer.append(productHTML);
+      totalPrice += Number(product.price);
+    });
 
-        document.querySelector('#subtotal table tr:nth-child(3) td:nth-child(2)').textContent = `$ ${totalPrice.toFixed(2)}`;
-        document.querySelector('#subtotal table tr:nth-child(1) td:nth-child(2)').textContent = `$ ${totalPrice.toFixed(2)}`;
+    document.querySelector('#subtotal table tr:nth-child(3) td:nth-child(2)').textContent = `$ ${totalPrice.toFixed(2)}`;
+    document.querySelector('#subtotal table tr:nth-child(1) td:nth-child(2)').textContent = `$ ${totalPrice.toFixed(2)}`;
 
-        $('#cart-container').on('change', 'input[type="number"]', function () {
-          var input = $(this);
-          var quantity = parseInt(input.val(), 10);
-          var price = parseFloat(input.closest('tr').find('td:nth-child(3)').text().replace('$ ', ''));
-          if (quantity < 0) {
-            input.val('0');
-            quantity = 0;
-          } else if (quantity > 4) {
-            input.val('4');
-            quantity = 4;
-          }
-          var subtotal = quantity * price;
-          input.closest('tr').find('td:nth-child(5)').text(`$ ${subtotal.toFixed(2)}`);
-        
-          // azurira ukupnu cijenu
-          var total = 0;
-          $('#cart-container tr').each(function () {
-            var row = $(this);
-            var rowSubtotal = parseFloat(row.find('td:nth-child(5)').text().replace('$ ', ''));
-            total += rowSubtotal;
-          });
-        
-          $('#subtotal table tr:nth-child(1) td:nth-child(2)').text(`$ ${total.toFixed(2)}`);
-          $('#subtotal table tr:nth-child(3) td:nth-child(2)').text(`$ ${total.toFixed(2)}`);
-        });
-      },
-      error: function (error) {
-        console.error('An error occurred while retrieving data', error);
-      }
+    $('#cart-container').on('change', 'input[type="number"]', function () {
+      var input = $(this);
+      var quantity = 1;
+      var price = parseFloat(input.closest('tr').find('td:nth-child(3)').text().replace('$ ', ''));
+      var subtotal = quantity * price;
+      input.closest('tr').find('td:nth-child(5)').text(`$ ${subtotal.toFixed(2)}`);
+
+      // azurira ukupnu cijenu
+      var total = 0;
+      $('#cart-container tr').each(function () {
+        var row = $(this);
+        var rowSubtotal = parseFloat(row.find('td:nth-child(5)').text().replace('$ ', ''));
+        total += rowSubtotal;
+      });
+
+      $('#subtotal table tr:nth-child(1) td:nth-child(2)').text(`$ ${total.toFixed(2)}`);
+      $('#subtotal table tr:nth-child(3) td:nth-child(2)').text(`$ ${total.toFixed(2)}`);
     });
   }
 });
