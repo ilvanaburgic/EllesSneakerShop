@@ -30,10 +30,11 @@ app.route({
   onReady: function () {
     var productId = localStorage.getItem("productId");
     $.ajax({
-      url: 'assets/js/products.json',
+      url: 'backend/get_products.php',
       type: 'GET',
       dataType: 'json',
-      success: function (products) {
+      success: function (data) {
+        const products = data.data;
         var product = products.find(p => p.id.toString() === productId);
         if (product) {
           document.getElementById("MainImg").src = product.image;
@@ -57,10 +58,11 @@ app.route({
   load: "home.html",
   onReady: function () {
     $.ajax({
-      url: 'assets/js/products.json',
+      url: 'backend/get_products.php',
       type: 'GET',
       dataType: 'json',
-      success: function (products) {
+      success: function (data) {
+        const products = data.data;
         var proContainer = $('#pro-container');
         proContainer.empty(); 
 
@@ -96,10 +98,11 @@ app.route({
   load: "shop.html",
   onReady: function () {
     $.ajax({
-      url: 'assets/js/products.json',
+      url: 'backend/get_products.php',
       type: 'GET',
       dataType: 'json',
-      success: function (products) {
+      success: function (data) {
+        const products = data.data;
         var proContainer = $('#pro-container');
         proContainer.empty();
 
