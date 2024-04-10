@@ -26,7 +26,7 @@
   </section>
 
   <!--CART TOTAL SECTION-->
-  
+
   <section id="cart-add" class="section-p1">
     <div id="subtotal">
       <h3>Cart Totals</h3>
@@ -44,11 +44,58 @@
           <td><strong>$ </strong></td>
         </tr>
       </table>
-      <div class="cart-button" onclick="window.location.href='#registration'">
+      <input class="form-control" type="text" id="userName" placeholder="Your Name">
+      <input style="margin-top: 10px;" class="form-control" type="email" id="userEmail" placeholder="Your Email">
+      <div style="margin-top: 10px;" class="cart-button" onclick="makeOrder()">
         Buy
       </div>
     </div>
   </section>
 </body>
+<script>
+  function makeOrder() {
+    // Collect user details
+    const userName = document.getElementById('userName').value;
+    const userEmail = document.getElementById('userEmail').value;
+
+    // Assume cartItems is populated from localStorage or your current cart management logic
+    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Prepare data for the backend
+    const orderData = {
+      user: {
+        name: userName,
+        email: userEmail,
+        // Add more user details as needed
+      },
+      items: cartItems // Your cart items
+    };
+
+    // Send data to the backend using jQuery AJAX
+    $.ajax({
+      url: 'backend/make_order.php', // Update with the actual backend URL
+      method: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify(orderData),
+      success: function (response) {
+        console.log('Order successfully made', response);
+        // Show a success message
+        alert('Order successfully placed!');
+
+        // Clear the input fields
+        document.getElementById('userName').value = '';
+        document.getElementById('userEmail').value = '';
+
+        // Clear the cart (assuming the cart is stored in localStorage)
+        localStorage.setItem('cart', JSON.stringify([]));
+      },
+      error: function (xhr, status, error) {
+        console.error('Order creation failed', xhr.responseText);
+        // Optionally, show an error message to the user
+        alert('Failed to place the order. Please try again.');
+      }
+    });
+  }
+</script>
 
 </html>
