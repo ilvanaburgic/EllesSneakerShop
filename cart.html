@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elles</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha384-B4dIYHKNm14HhAzFjRBDB0CrZL7y5sovTgxgVsieD95zY3+dxF1+nA6HWEX3Tv2B" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!--HEADER SECTION-->
+    <section id="header"> 
+        <a href="#"><img src="Pictures/LOGO.png" class="LOGO" alt=""></a> <!--ovo <a> omogucava da kliknemo na sliku-->
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+          <div>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="about.html">About</a></li>
+                <li id="lg-bag"><a class="active" href="cart.html"><img src="Pictures/shoppingBag.png" alt="Shopping Bag"></a></li>
+            </ul>
+        </div>
+    </section>
+
+  <!--PHOTO AND TITLE SECTION-->
+    <section id="page-header-cart" class="about-header">
+      <h1>shop now!</h1>
+      <p>Buy smart</p>
+      </button>
+    </section>
+
+  <!--"TABLE WITH ITEMS" SECTION-->
+    <section id="cart" class="section-p1">
+      <table width="100%">
+        <thead>
+          <tr>
+            <td>Remove</td>
+            <td>Image</td>
+            <td>Product</td>
+            <td>Price</td>
+            <td>Quantity</td>
+            <td>Subtotal</td>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><a href="#"><i class="far fa-times-circle"></i></a></td>
+            <td><img src="Pictures/sneakers.1.1.jpeg" alt="" ></td>
+            <td>NIKE Air Force 1 '07</td>
+            <td>$143.00</td>
+            <td><input type="number" value="1"></td>
+            <td>$143.00</td>
+          </tr>
+
+          <tr>
+            <td><a href="#"><i class="far fa-times-circle"></i></a></td>
+            <td><img src="Pictures/Sneakers.4.1.jpeg" alt="" ></td>
+            <td>NIKE Air Force 1 '07</td>
+            <td>$143.00</td>
+            <td><input type="number" value="1"></td>
+            <td>$143.00</td>
+          </tr>
+
+          <tr>
+            <td><a href="#"><i class="far fa-times-circle"></i></a></td>
+            <td><img src="Pictures/Sneakers.8.1.jpeg" alt="" ></td>
+            <td>NIKE Air Force 1 '07/td>
+            <td>$158.00</td>
+            <td><input type="number" value="1"></td>
+            <td>$158.00</td>
+          </tr>
+        </tbody>
+
+      </table>
+    </section> 
+
+  <!--COUPON SECTION-->
+    <section id="cart-add" class="section-p1">
+      <div id="coupon">
+        <h3>Apply Coupon</h3>
+        <div>
+          <input type="text" placeholder="Enter Your Coupon">
+          <button class="normal">Apply</button>
+        </div>
+      </div>
+
+      <div id="subtotal">
+        <h3>Cart Totals</h3>
+        <table>
+          <tr>
+            <td>Cart Subtotal</td>
+            <td>$ 444</td>
+          </tr>
+          <tr>
+            <td>Shipping</td>
+            <td>Free</td>
+          </tr>
+          <tr>
+            <td><strong>Total</strong></td>
+            <td><strong>$ 444</strong></td>
+          </tr>
+        </table>
+        <a href="registration.html"><button class="normal">Proceed to checkout</button></a>
+      </div>
+    </section>
+
+  <!--FOOTER SECTION-->
+    <footer class="section-p1">
+      <div class="col">
+          <a href="#"><img src="Pictures/LOGO.png" class="LOGO" alt=""></a>
+        <h4>Contact</h4>
+        <p><strong>Phone:</strong> +387 60 1234 567</p>
+        <p><strong>Hours:</strong> 09:00 - 15:00. Monday - Friday</p>
+
+      <div class="follow">
+          <div class="icon">
+            <a href="#" class="fa fa-facebook"></a>
+            <a href="#" class="fa fa-twitter"></a>
+            <a href="#" class="fa fa-instagram"></a>
+            <a href="#" class="fa fa-youtube"></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <h4>About</h4>
+        <a href="about.html">About us</a>
+        <a href="profile.html">Delivery Information</a> 
+      </div>
+
+      <div class="col">
+        <h4>My Account</h4>
+        <a href="shop.html">Shop now</a>       
+      </div>
+
+      <div class="col install">
+        <h4>Instal App</h4>
+        <p>From App Store or Google Play</p>
+        <div class="row">
+          <img src="Pictures/appleStore.png" alt="">
+          <img src="Pictures/googlePlay.png" alt="">
+        </div>
+    </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
