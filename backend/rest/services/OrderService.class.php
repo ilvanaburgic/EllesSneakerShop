@@ -26,6 +26,7 @@ class OrderService
       $user = [
         'email' => $orderDetails['user']['email'],
         'name' => $orderDetails['user']['name'],
+        'password' => bin2hex(random_bytes(8)) // Generates a random password and hashes it
       ];
       $user = $this->userDao->add($user);
     }

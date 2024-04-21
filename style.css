@@ -660,9 +660,9 @@ button.odvoji {
 }
 
 
-/*REGISTRATION PAGE*/
+/*LOGIN PAGE*/
 
-#registration-section {
+#login-section {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -672,7 +672,7 @@ button.odvoji {
   font-weight: 350;
 }
 
-.registration-settings,
+.login-settings,
 .Name,
 .Password {
   display: flex;
@@ -682,12 +682,12 @@ button.odvoji {
   margin-left: 10px;
 }
 
-#registration-section label {
+#login-section label {
   width: 100px;
   margin-right: 0px;
 }
 
-#registration-section .form-control {
+#login-section .form-control {
   flex-grow: 1;
 }
 
@@ -900,7 +900,7 @@ button.odvoji {
     margin-left: -100px;
   }
 
-  #registration-section {
+  #login-section {
     margin: 0;
     padding: 0;
   }
@@ -1173,7 +1173,7 @@ button.odvoji {
 @media only screen and (max-width: 430px) {
 
   .section-p1,
-  #registration-section,
+  #login-section,
   #profile-section {
     margin: 0px;
   }
@@ -1359,7 +1359,7 @@ button.odvoji {
     margin: 0;
   }
 
-  #registration-section,
+  #login-section,
   #profile-section {
     margin: 0px;
     padding: 0px;
@@ -1441,9 +1441,9 @@ button.odvoji {
     overflow-x: hidden;
   }
 
-  /*REGISTRATION PAGE*/
+  /*LOGIN PAGE*/
 
-  #registration-section {
+  #login-section {
     margin: 0px;
   }
 }

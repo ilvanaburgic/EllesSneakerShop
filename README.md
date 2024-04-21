@@ -28,7 +28,7 @@ For milestone #1, I created the frontend part of the application using HTML and 
 	<li>sproduct.html (page of individual product with details)</li>
 	<li>about.html (about the application)</li>
 	<li>cart.html (cart)</li>
-	<li>registration.html</li>
+	<li>login.html</li>
 	<li>profile.html</li>
 </ul>
 
@@ -83,7 +83,7 @@ For milestone #1, I created the frontend part of the application using HTML and 
 
 </ul>
 
-<br><strong>Registration page contains: (registration.html)</strong>
+<br><strong>Login page contains: (login.html)</strong>
 <ul>
 	<li>"Header section" - contains an image (logo), Home, Shop, About, Shopping.</li>
 	<li>"Profile section" - contains email and password as well as Registrate button, which leads to profile.html.</li>
@@ -128,7 +128,7 @@ First of all, i update my HTML (index.html).
       <section id="about" data-load="about.html"></section>
       <section id="cart" data-load="cart.html"></section>
       <section id="profile" data-load="profile.html"></section>
-      <section id="registration" data-load="registration.html"></section>
+      <section id="login" data-load="login.html"></section>
     </main>
   </section>
 ```
