@@ -871,6 +871,8 @@ button.odvoji {
   footer.section-p1 .col a {
     padding: 0px 0;
   }
+
+
 }
 
 
@@ -1204,7 +1206,7 @@ button.odvoji {
   /*HEADER - NAV BAR (home)*/
   #header #navbar li a {
     font-size: 14px;
-    margin-right: -40px;
+    margin-right: -60px;
     padding-left: 52px;
   }
 
