@@ -33,6 +33,7 @@
           <li><a href="#shop">Shop</a></li>                         
           <li><a href="#about">About</a></li>
           <li><a href="#cart">Cart</a></li>
+          <li><a href="#login">Admin</a></li>
         </ul>
       </nav>
     </header> 
@@ -47,7 +48,7 @@
       <section id="about" data-load="about.html"></section>
       <section id="cart" data-load="cart.html"></section>
       <section id="profile" data-load="profile.html"></section>
-      <section id="registration" data-load="registration.html"></section>
+      <section id="login" data-load="login.html"></section>
     </main>
   </section>
 
@@ -61,7 +62,7 @@
   <div class="form">
     <input type="text" placeholder="Your email address" id="emailInput">
     <button class="normal" onclick="subscribeNewsletter()">Sign Up</button>
-    <span id="emailMessage" class="email-error-message"></span> <!-- Mjesto za poruku ispod input polja -->
+    <span id="emailMessage" class="email-error-message"></span>
   </div>
 </section>
 
@@ -70,11 +71,26 @@
   function subscribeNewsletter() {
     var email = document.getElementById('emailInput').value;
     var messageElement = document.getElementById('emailMessage');
+
     if(email && email.includes('@')) {
-      messageElement.textContent = 'Email was sent'; 
-      messageElement.style.color = 'green'; 
+      $.ajax({
+        url: 'backend/post_subscribe.php', // Adjust the URL to where your subscribe endpoint is located
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({ email: email }),
+        success: function(response) {
+          // Assume the response contains an object with a message property
+          messageElement.textContent = response.message;
+          messageElement.style.color = 'green';
+        },
+        error: function(xhr, status, error) {
+          // Handle errors here
+          messageElement.textContent = 'Subscription failed: ' + error;
+          messageElement.style.color = 'red';
+        }
+      });
     } else {
-      messageElement.textContent = 'Enter an email!'; 
+      messageElement.textContent = 'Please enter a valid email!';
       messageElement.style.color = 'red';
     }
   }
