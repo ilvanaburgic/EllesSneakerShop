@@ -1,8 +1,8 @@
 <?php
 
-require_once __DIR__ . '/rest/services/ProductService.class.php';
+require_once __DIR__ . '/../services/ProductService.class.php';
 
-Flight::set('product_service', new ProductService);
+Flight::set('product_service', new ProductService());
 
 
 Flight::route('GET /products', function(){
@@ -17,3 +17,15 @@ Flight::route('GET /products', function(){
   ], 200); 
 
 }); 
+
+
+Flight::route('DELETE /products/@id', function($id){
+  $product_service = Flight::get('product_service');
+  $result = $product_service->delete_product_by_id($id);
+
+  if ($result) {
+      Flight::json(['message' => 'Product deleted successfully'], 200);
+  } else {
+      Flight::json(['message' => 'Product not found'], 404);
+  }
+});

@@ -34,5 +34,19 @@
 </body>
 
 
+<script>
+  document.getElementById('normal-delete-button').addEventListener('click', function() {
+    if (confirm('Are you sure you want to delete this item?')) {
+        // Ovdje dodajte logiku za brisanje podataka, npr. poziv AJAX-a na server
+        alert('Item deleted successfully!');
+    }
+});
+
+document.getElementById('normal-edit-button').addEventListener('click', function() {
+    // Ovdje dodajte logiku za otvaranje forme za uređivanje ili direktno uređivanje podataka na stranici
+    alert('Enter edit mode');
+});
+</script>
+
 
 </html>

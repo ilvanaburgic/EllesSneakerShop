@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/rest/services/NewsletterService.class.php';
+require_once __DIR__ . '/../services/NewsletterService.class.php';
 
 Flight::register('newsletterService', 'NewsletterService');
 

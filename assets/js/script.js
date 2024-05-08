@@ -30,7 +30,7 @@ app.route({
   onReady: function () {
     var productId = localStorage.getItem("productId");
     $.ajax({
-      url: 'backend/products',
+      url: 'http://localhost:5501/backend/products/',
       type: 'GET',
       dataType: 'json',
       success: function (data) {
@@ -47,21 +47,20 @@ app.route({
         }
 
         $('.add-to-cart').on('click', function () {
-          // Get the existing cart from localStorage
+          
           let cart = JSON.parse(localStorage.getItem('cart')) || [];
-          // Add the new product to the cart array
+          
           cart.push(product);
-          // Save the updated cart back to localStorage
           localStorage.setItem('cart', JSON.stringify(cart));
 
           const button = $(this);
 
-          // Change button text to indicate success
+          
           button.text('Added!');
           button.addClass('success');
           button.prop('disabled', true);
 
-          // Set a timer to revert the button back to its original state after 2 seconds
+          
           setTimeout(function () {
             button.text('Add to cart');
             button.removeClass('success');
@@ -81,7 +80,7 @@ app.route({
   load: "home.html",
   onReady: function () {
     $.ajax({
-      url: 'backend/products', // Ako ti je `index.php` u direktoriju `backend`
+      url: 'http://localhost:5501/backend/products', 
       type: 'GET',
       dataType: 'json',
       success: function (data) {
@@ -121,7 +120,7 @@ app.route({
   load: "shop.html",
   onReady: function () {
     $.ajax({
-      url: 'backend/products',
+      url: 'http://localhost:5501/backend/products',
       type: 'GET',
       dataType: 'json',
       success: function (data) {
@@ -161,7 +160,7 @@ app.route({
   load: "administrator.html",
   onReady: function () {
     $.ajax({
-      url: 'backend/products',
+      url: 'http://localhost:5501/backend/products',
       type: 'GET',
       dataType: 'json',
       success: function (data) {
@@ -202,7 +201,7 @@ app.route({
   onReady: function () {
     var productId = localStorage.getItem("productId");
     $.ajax({
-      url: 'backend/products',
+      url: 'http://localhost:5501/backend/products',
       type: 'GET',
       dataType: 'json',
       success: function (data) {
@@ -224,6 +223,8 @@ app.route({
     });
   }
 });
+
+/*    ovdje dodati za DELETE, GET i to */
 
 
 app.route({
@@ -260,7 +261,7 @@ app.route({
       var subtotal = quantity * price;
       input.closest('tr').find('td:nth-child(5)').text(`$ ${subtotal.toFixed(2)}`);
 
-      // azurira ukupnu cijenu
+      
       var total = 0;
       $('#cart-container tr').each(function () {
         var row = $(this);

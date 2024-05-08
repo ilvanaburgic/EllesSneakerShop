@@ -1,10 +1,10 @@
 <?php
 
-require_once __DIR__ . '/rest/services/OrderService.class.php';
+require_once __DIR__ . '/../services/OrderService.class.php';
 
 Flight::register('orderService', 'OrderService');
 
-Flight::route('POST /createOrder', function() {
+Flight::route('POST /order', function() {
     $json = file_get_contents('php://input');
     $data = json_decode($json, true);
 
