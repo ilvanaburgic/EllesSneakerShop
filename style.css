@@ -160,6 +160,58 @@ body {
   background-color: #ede1e6;
 }
 
+#page-administrator-header{
+  margin-top: 100px;
+  margin-left: 320px;
+
+
+}
+
+
+.CRUD-buttons {
+  display: flex;
+  justify-content: space-between; /* Ovo će osigurati razmak između dugmadi */
+  margin-top: 80px;
+  margin-bottom: -50px;
+  margin-left: 900px; /* Ovo možete prilagoditi prema potrebi */
+  margin-right: 100px;
+
+  
+}
+
+.normal-edit-button, .normal-delete-button {
+  flex: 1; /* Ovo osigurava da svako dugme zauzima jednake dijelove prostora */
+  color: white;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin-left: 10px; /* Dodaje razmak od 10px na lijevoj strani delete dugmeta */
+  transition: background-color 0.3s; /* Dodaje glatku tranziciju za promjene boje pozadine */
+  border-style: none;
+
+
+}
+
+.normal-edit-button {
+  background-color: #00458f; /* Svijetlo plava */
+}
+
+/* Ako želite da razmak bude između dugmadi koristeći margin-left na delete dugme */
+.normal-delete-button {
+    background-color: red;
+}
+
+.normal-edit-button:hover {
+  background-color: #7abaff; /* Promjena boje teksta dugmadi na hover */
+}
+
+.normal-delete-button:hover {
+  background-color: rgb(255, 130, 130); /* Promjena boje teksta dugmadi na hover */
+}
+
+
+
+
+
 
 /*FEATURED SNEAKERS PAGE*/
 

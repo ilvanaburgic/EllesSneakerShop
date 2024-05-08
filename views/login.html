@@ -50,7 +50,7 @@
         data: JSON.stringify({ email: email, password: password }),
         success: function (response) {
           console.log('Login successful', response);
-          window.location.hash = '#home';
+          window.location.hash = '#administrator';
         },
         error: function (xhr, status, error) {
           console.error('Login failed', xhr.responseText);
