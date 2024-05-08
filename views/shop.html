@@ -43,7 +43,7 @@
 
     if(email && email.includes('@')) {
       $.ajax({
-        url: 'backend/post_subscribe.php', // Adjust the URL to where your subscribe endpoint is located
+        url: 'http://localhost:5501/backend/subscribe', // Adjust the URL to where your subscribe endpoint is located
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify({ email: email }),

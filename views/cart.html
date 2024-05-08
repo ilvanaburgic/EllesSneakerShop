@@ -73,7 +73,7 @@
 
     // Send data to the backend using jQuery AJAX
     $.ajax({
-      url: 'backend/make_order.php', // Update with the actual backend URL
+      url: 'http://localhost:5501/backend/order', // Update with the actual backend URL
       method: 'POST',
       contentType: 'application/json',
       data: JSON.stringify(orderData),
@@ -120,7 +120,7 @@
 
     if(email && email.includes('@')) {
       $.ajax({
-        url: 'backend/post_subscribe.php', // Adjust the URL to where your subscribe endpoint is located
+        url: 'backend/subscribe', // Adjust the URL to where your subscribe endpoint is located
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify({ email: email }),
