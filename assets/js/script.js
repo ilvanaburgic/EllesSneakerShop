@@ -75,6 +75,7 @@ app.route({
   }
 });
 
+
 app.route({
   view: "home",
   load: "home.html",
@@ -155,10 +156,15 @@ app.route({
   }
 });
 
+
 app.route({
   view: "administrator",
   load: "administrator.html",
   onReady: function () {
+    if (!Utils.get_from_localstorage("user")) {
+      window.location.href = '#login';
+      return;
+    }
     $.ajax({
       url: 'http://localhost:5501/backend/products',
       type: 'GET',
@@ -199,6 +205,10 @@ app.route({
   view: "sproductAdministrator",
   load: "sproductAdministrator.html",
   onReady: function () {
+    if (!Utils.get_from_localstorage("user")) {
+      window.location.href = '#login';
+      return;
+    }
     var productId = localStorage.getItem("productId");
     $.ajax({
       url: 'http://localhost:5501/backend/products',

@@ -38,6 +38,7 @@
 
   </section>
 
+  <script src="../utils/utils.js"></script>
   <script>
     function loginUser() {
       var email = $('#email').val();
@@ -49,8 +50,11 @@
         contentType: 'application/json',
         data: JSON.stringify({ email: email, password: password }),
         success: function (response) {
+          Utils.set_to_localstorage("user", response);
           console.log('Login successful', response);
           window.location.hash = '#administrator';
+          $("#logout-button")
+          .show();
         },
         error: function (xhr, status, error) {
           console.error('Login failed', xhr.responseText);

@@ -1,31 +1,148 @@
 <?php
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
 
 require_once __DIR__ . '/../services/ProductService.class.php';
 
 Flight::set('product_service', new ProductService());
 
 
-Flight::route('GET /products', function(){
+/**
+ * @OA\Get(
+ *      path="/products",
+ *      tags={"products"},
+ *      summary="Get all products - dummy route for understanding the benefit of tags in the swagger",
+ *      @OA\Response(
+ *           response=200,
+ *           description="Array of all products in the databases"
+ *      )
+ * )
+ */
+Flight::route('GET /products', function () {
 
   $products = Flight::get('product_service')->get_all_products();
 
   header('Content-Type: application/json');
-  
-  
+
+
   Flight::json([
     'data' => $products,
-  ], 200); 
+  ], 200);
+});
 
-}); 
 
+/**
+ * @OA\Delete(
+ *      path="/products/{product_id}",
+ *      tags={"products"},
+ *      summary="Delete product by id",
+ *      @OA\Response(
+ *           response=200,
+ *           description="Deleted product data or 500 status code exception otherwise"
+ *      ),
+ *      @OA\Parameter(@OA\Schema(type="number"), in="path", name="product_id", example="1", description="Product ID")
+ * )
+ */
+Flight::route('DELETE /products/@id', function ($id) {
+  try {
+    $token = Flight::request()->getHeader("Authentication");
+    if (!$token)
+      Flight::halt(401, "Missing authentication header");
 
-Flight::route('DELETE /products/@id', function($id){
+    JWT::decode($token, new Key('your_secret_key', 'HS256'));
+  } catch (\Exception $e) {
+    Flight::halt(401, $e->getMessage());
+  }
   $product_service = Flight::get('product_service');
   $result = $product_service->delete_product_by_id($id);
 
   if ($result) {
-      Flight::json(['message' => 'Product deleted successfully'], 200);
+    Flight::json(['message' => 'Product deleted successfully'], 200);
   } else {
-      Flight::json(['message' => 'Product not found'], 404);
+    Flight::json(['message' => 'Product not found'], 404);
+  }
+});
+
+/**
+ * @OA\Patch(
+ *      path="/products/{product_id}",
+ *      security={{"ApiKey":{}}},
+ *      tags={"products"},
+ *      summary="Update product by id",
+ *      description="Updates a product's details by ID.",
+ *      @OA\Parameter(
+ *          name="product_id",
+ *          in="path",
+ *          required=true,
+ *          @OA\Schema(
+ *              type="integer"
+ *          ),
+ *          description="ID of the product to be updated"
+ *      ),
+ *      @OA\RequestBody(
+ *          required=true,
+ *          @OA\MediaType(
+ *              mediaType="application/json",
+ *              @OA\Schema(
+ *                  type="object",
+ *                  required={"name", "price", "description"},
+ *                  @OA\Property(
+ *                      property="name",
+ *                      type="string",
+ *                      description="Name of the product"
+ *                  ),
+ *                  @OA\Property(
+ *                      property="price",
+ *                      type="number",
+ *                      format="float",
+ *                      description="Price of the product"
+ *                  ),
+ *                  @OA\Property(
+ *                      property="description",
+ *                      type="string",
+ *                      description="Description of the product"
+ *                  )
+ *              )
+ *          )
+ *      ),
+ *      @OA\Response(
+ *          response=200,
+ *          description="Product updated successfully"
+ *      ),
+ *      @OA\Response(
+ *          response=400,
+ *          description="Invalid input"
+ *      ),
+ *      @OA\Response(
+ *          response=404,
+ *          description="Product not found"
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal Server Error"
+ *      )
+ * )
+ */
+Flight::route('PATCH /products/@id', function ($id) {
+  try {
+    $token = Flight::request()->getHeader("Authentication");
+    if (!$token)
+      Flight::halt(401, "Missing authentication header");
+
+    JWT::decode($token, new Key('your_secret_key', 'HS256'));
+  } catch (\Exception $e) {
+    Flight::halt(401, $e->getMessage());
+  }
+  $data = json_decode(Flight::request()->getBody());
+  if ($data) {
+    $product_service = Flight::get('product_service');
+    $result = $product_service->update_product($id, $data->name, $data->price, $data->description);
+    if ($result) {
+      Flight::json(['message' => 'Proizvod je uspješno ažuriran'], 200);
+    } else {
+      Flight::json(['message' => 'Ažuriranje proizvoda nije uspjelo'], 500);
+    }
+  } else {
+    Flight::json(['message' => 'Neispravan unos'], 400);
   }
 });

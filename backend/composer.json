@@ -2,6 +2,7 @@
   "require": {
  
     "zircote/swagger-php": "3.3.7",
-    "flightphp/core": "^2.0"
+    "flightphp/core": "^3.8",
+    "firebase/php-jwt": "^6.10"
   }
 }
