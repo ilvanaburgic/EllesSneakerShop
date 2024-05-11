@@ -797,6 +797,49 @@ button.odvoji {
   text-align: center;
 }
 
+.normal-add-button {
+  position: absolute;
+  top: 250px; /* Spušta gumb dolje za 100px (originalni top: 20px + 100px) */
+  margin-left: 570px;
+  color: white;
+  left: calc(50% - 150px); /* Pomjera gumb lijevo za 150px (originalni left: 50%) */
+  padding: 20px 50px;
+  background-color: #45a049;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+
+
+#navbar li, #logout-button {
+  margin-right: 20px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  padding: 10px;
+  border: none;
+  background-color: #f3e3ea;
+  color: black; /* Adjust text color as per your theme */
+  text-align: center;
+  text-decoration: none;
+  line-height: 20px;
+  transition: background-color 0.3s;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 580;
+  color: #262626;
+  transition: 0.3s ease;
+}
+
+#logout-button {
+  cursor: pointer;
+}
+
+#navbar li a, #logout-button {
+  display: block;
+}
+
+
 
 /* Osnovni stilovi */
 body {

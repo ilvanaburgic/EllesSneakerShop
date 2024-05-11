@@ -146,3 +146,81 @@ Flight::route('PATCH /products/@id', function ($id) {
     Flight::json(['message' => 'Neispravan unos'], 400);
   }
 });
+
+
+/**
+ * @OA\Post(
+ *      path="/products",
+ *      security={{"ApiKeyAuth":{}}},
+ *      tags={"products"},
+ *      summary="Add a new product",
+ *      description="Creates a new product with the given details.",
+ *      @OA\RequestBody(
+ *          required=true,
+ *          @OA\MediaType(
+ *              mediaType="application/json",
+ *              @OA\Schema(
+ *                  type="object",
+ *                  required={"name", "price", "description", "image"},
+ *                  @OA\Property(
+ *                      property="name",
+ *                      type="string",
+ *                      description="Name of the product"
+ *                  ),
+ *                  @OA\Property(
+ *                      property="price",
+ *                      type="number",
+ *                      format="float",
+ *                      description="Price of the product"
+ *                  ),
+ *                  @OA\Property(
+ *                      property="description",
+ *                      type="string",
+ *                      description="Description of the product"
+ *                  ),
+ *                  @OA\Property(
+ *                      property="image",
+ *                      type="string",
+ *                      description="URL of the product image"
+ *                  )
+ *              )
+ *          )
+ *      ),
+ *      @OA\Response(
+ *          response=200,
+ *          description="Product added successfully"
+ *      ),
+ *      @OA\Response(
+ *          response=400,
+ *          description="Invalid input"
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal Server Error"
+ *      )
+ * )
+ */
+Flight::route('POST /products', function() {
+    try {
+        $token = Flight::request()->getHeader("Authentication");
+        if (!$token)
+            Flight::halt(401, "Missing authentication header");
+
+        JWT::decode($token, new Key('your_secret_key', 'HS256'));
+    } catch (\Exception $e) {
+        Flight::halt(401, $e->getMessage());
+    }
+
+    $data = json_decode(Flight::request()->getBody(), true);
+    if ($data && isset($data['name'], $data['price'], $data['description'], $data['image'])) {
+        $product_service = Flight::get('product_service');
+        $result = $product_service->add_product($data);
+        if ($result) {
+            Flight::json(['message' => 'Product added successfully', 'product' => $result], 200);
+        } else {
+            Flight::json(['message' => 'Failed to add product'], 500);
+        }
+    } else {
+        Flight::json(['message' => 'Invalid input'], 400);
+    }
+});

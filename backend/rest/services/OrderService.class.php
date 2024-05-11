@@ -33,7 +33,7 @@ class OrderService
 
     // Calculate the total price
     $totalPrice = array_reduce($orderDetails['items'], function ($carry, $item) {
-      return $carry + (1 * $item['price_at_time_of_order']);
+      return $carry + (1 * $item['price']);
     }, 0);
 
     $order = [
