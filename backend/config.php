@@ -10,3 +10,6 @@ define('DB_PORT', 3306);
 define('DB_USER', 'root');
 define('DB_PASS', '12nana123');
 define('DB_HOST', '127.0.0.1');
+
+// JWT Secret
+define('JWT_SECRET', 'PnB&6a=A!x9/.dR=E12gX5mzHFx%X*');

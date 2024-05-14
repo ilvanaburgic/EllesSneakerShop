@@ -30,7 +30,7 @@ app.route({
   onReady: function () {
     var productId = localStorage.getItem("productId");
     $.ajax({
-      url: 'backend/get_products.php',
+      url: 'http://localhost:5501/backend/products/',
       type: 'GET',
       dataType: 'json',
       success: function (data) {
@@ -47,21 +47,20 @@ app.route({
         }
 
         $('.add-to-cart').on('click', function () {
-          // Get the existing cart from localStorage
+          
           let cart = JSON.parse(localStorage.getItem('cart')) || [];
-          // Add the new product to the cart array
+          
           cart.push(product);
-          // Save the updated cart back to localStorage
           localStorage.setItem('cart', JSON.stringify(cart));
 
           const button = $(this);
 
-          // Change button text to indicate success
+          
           button.text('Added!');
           button.addClass('success');
           button.prop('disabled', true);
 
-          // Set a timer to revert the button back to its original state after 2 seconds
+          
           setTimeout(function () {
             button.text('Add to cart');
             button.removeClass('success');
@@ -76,12 +75,13 @@ app.route({
   }
 });
 
+
 app.route({
   view: "home",
   load: "home.html",
   onReady: function () {
     $.ajax({
-      url: 'backend/get_products.php',
+      url: 'http://localhost:5501/backend/products', 
       type: 'GET',
       dataType: 'json',
       success: function (data) {
@@ -121,7 +121,7 @@ app.route({
   load: "shop.html",
   onReady: function () {
     $.ajax({
-      url: 'backend/get_products.php',
+      url: 'http://localhost:5501/backend/products',
       type: 'GET',
       dataType: 'json',
       success: function (data) {
@@ -155,6 +155,87 @@ app.route({
     });
   }
 });
+
+
+app.route({
+  view: "administrator",
+  load: "administrator.html",
+  onReady: function () {
+    if (!Utils.get_from_localstorage("user")) {
+      window.location.href = '#login';
+      return;
+    }
+    $.ajax({
+      url: 'http://localhost:5501/backend/products',
+      type: 'GET',
+      dataType: 'json',
+      success: function (data) {
+        const products = data.data;
+        var proContainer = $('#pro-container');
+        proContainer.empty();
+
+        products.forEach(function (product) {
+          var productHTML =
+            '<div class="pro" data-id="' + product.id + '">' +
+            '<img src="' + product.image + '" alt="">' +
+            '<div class="description">' +
+            '<span>' + product.brand + '</span>' +
+            '<h5>' + product.name + '</h5><br>' +
+            '<h4>$' + product.price + '</h4>' +
+            '</div>' +
+            '</div>';
+
+          proContainer.append(productHTML);
+        });
+
+        $('.pro').click(function () {
+          var productId = $(this).data('id');
+          localStorage.setItem("productId", productId);
+          window.location.href = '#sproductAdministrator';
+        });
+      },
+      error: function (error) {
+        console.error('An error occurred while retrieving data', error);
+      }
+    });
+  }
+});
+
+app.route({
+  view: "sproductAdministrator",
+  load: "sproductAdministrator.html",
+  onReady: function () {
+    if (!Utils.get_from_localstorage("user")) {
+      window.location.href = '#login';
+      return;
+    }
+    var productId = localStorage.getItem("productId");
+    $.ajax({
+      url: 'http://localhost:5501/backend/products',
+      type: 'GET',
+      dataType: 'json',
+      success: function (data) {
+        const products = data.data;
+        var product = products.find(p => p.id.toString() === productId);
+        if (product) {
+          document.getElementById("MainImg").src = product.image;
+          document.querySelector('.single-pro-details h4').textContent = product.name;
+          document.querySelector('.single-pro-details h3').textContent = `$${product.price}`;
+          document.querySelector('.single-pro-details span').textContent = product.description;
+
+        } else {
+          console.error('The product is not found');
+        }
+      },
+      error: function (error) {
+        console.error('An error occurred while retrieving data', error);
+      }
+    });
+  }
+});
+
+/*    ovdje dodati za DELETE, GET i to */
+
 
 app.route({
   view: "cart",
@@ -190,7 +271,7 @@ app.route({
       var subtotal = quantity * price;
       input.closest('tr').find('td:nth-child(5)').text(`$ ${subtotal.toFixed(2)}`);
 
-      // azurira ukupnu cijenu
+      
       var total = 0;
       $('#cart-container tr').each(function () {
         var row = $(this);
