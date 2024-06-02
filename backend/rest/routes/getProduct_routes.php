@@ -12,18 +12,19 @@ Flight::set('product_service', new ProductService());
  *      path="/products",
  *      tags={"products"},
  *      summary="Get all products - dummy route for understanding the benefit of tags in the swagger",
+ *       security={
+ *          {"ApiKey": {}}   
+ *      },
  *      @OA\Response(
  *           response=200,
  *           description="Array of all products in the databases"
  *      )
  * )
  */
-Flight::route('GET /products', function () {
-
+Flight::route('GET /public/products', function () {
   $products = Flight::get('product_service')->get_all_products();
 
   header('Content-Type: application/json');
-
 
   Flight::json([
     'data' => $products,
@@ -36,6 +37,9 @@ Flight::route('GET /products', function () {
  *      path="/products/{product_id}",
  *      tags={"products"},
  *      summary="Delete product by id",
+ *      security={
+ *         {"ApiKey": {}}   
+ *      },
  *      @OA\Response(
  *           response=200,
  *           description="Deleted product data or 500 status code exception otherwise"
@@ -43,16 +47,8 @@ Flight::route('GET /products', function () {
  *      @OA\Parameter(@OA\Schema(type="number"), in="path", name="product_id", example="1", description="Product ID")
  * )
  */
-Flight::route('DELETE /products/@id', function ($id) {
-  try {
-    $token = Flight::request()->getHeader("Authentication");
-    if (!$token)
-      Flight::halt(401, "Missing authentication header");
 
-    JWT::decode($token, new Key('your_secret_key', 'HS256'));
-  } catch (\Exception $e) {
-    Flight::halt(401, $e->getMessage());
-  }
+ Flight::route('DELETE /products/@id', function ($id) {
   $product_service = Flight::get('product_service');
   $result = $product_service->delete_product_by_id($id);
 
@@ -61,6 +57,23 @@ Flight::route('DELETE /products/@id', function ($id) {
   } else {
     Flight::json(['message' => 'Product not found'], 404);
   }
+})->addMiddleware(function() { //ovo dodat na svaku rutu
+  AuthMiddleware(); // ovo dodat na svaku rutu
+});
+
+
+
+
+Flight::route('GET /products', function () {
+  $products = Flight::get('product_service')->get_all_products();
+
+  header('Content-Type: application/json');
+
+  Flight::json([
+    'data' => $products,
+  ], 200);
+})->addMiddleware(function() { //ovo dodat na svaku rutu
+  AuthMiddleware(); // ovo dodat na svaku rutu
 });
 
 /**
@@ -124,15 +137,7 @@ Flight::route('DELETE /products/@id', function ($id) {
  * )
  */
 Flight::route('PATCH /products/@id', function ($id) {
-  try {
-    $token = Flight::request()->getHeader("Authentication");
-    if (!$token)
-      Flight::halt(401, "Missing authentication header");
-
-    JWT::decode($token, new Key('your_secret_key', 'HS256'));
-  } catch (\Exception $e) {
-    Flight::halt(401, $e->getMessage());
-  }
+  
   $data = json_decode(Flight::request()->getBody());
   if ($data) {
     $product_service = Flight::get('product_service');
@@ -145,6 +150,8 @@ Flight::route('PATCH /products/@id', function ($id) {
   } else {
     Flight::json(['message' => 'Neispravan unos'], 400);
   }
+})->addMiddleware(function() { //ovo dodat na svaku rutu
+  AuthMiddleware(); // ovo dodat na svaku rutu
 });
 
 
@@ -201,26 +208,18 @@ Flight::route('PATCH /products/@id', function ($id) {
  * )
  */
 Flight::route('POST /products', function() {
-    try {
-        $token = Flight::request()->getHeader("Authentication");
-        if (!$token)
-            Flight::halt(401, "Missing authentication header");
-
-        JWT::decode($token, new Key('your_secret_key', 'HS256'));
-    } catch (\Exception $e) {
-        Flight::halt(401, $e->getMessage());
-    }
-
-    $data = json_decode(Flight::request()->getBody(), true);
-    if ($data && isset($data['name'], $data['price'], $data['description'], $data['image'])) {
-        $product_service = Flight::get('product_service');
-        $result = $product_service->add_product($data);
-        if ($result) {
-            Flight::json(['message' => 'Product added successfully', 'product' => $result], 200);
-        } else {
-            Flight::json(['message' => 'Failed to add product'], 500);
-        }
-    } else {
-        Flight::json(['message' => 'Invalid input'], 400);
-    }
+  $data = json_decode(Flight::request()->getBody(), true);
+  if ($data && isset($data['name'], $data['price'], $data['description'], $data['image'])) {
+      $product_service = Flight::get('product_service');
+      $result = $product_service->add_product($data);
+      if ($result) {
+          Flight::json(['message' => 'Product added successfully', 'product' => $result], 200);
+      } else {
+          Flight::json(['message' => 'Failed to add product'], 500);
+      }
+  } else {
+      Flight::json(['message' => 'Invalid input'], 400);
+  }
+})->addMiddleware(function() { //ovo dodat na svaku rutu
+  AuthMiddleware(); // ovo dodat na svaku rutu
 });

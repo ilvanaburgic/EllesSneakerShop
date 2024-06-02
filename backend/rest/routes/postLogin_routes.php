@@ -93,7 +93,6 @@ Flight::route('POST /login', function() {
         }
 
         // Secret key should be stored securely and should not be hardcoded in production
-        $secretKey = 'your_secret_key'; // Replace with a strong secret key
 
         // Prepare the token payload
         $payload = [
@@ -105,7 +104,7 @@ Flight::route('POST /login', function() {
         ];
 
         // Encode the array to a JWT string
-        $jwt = JWT::encode($payload, $secretKey, 'HS256');
+        $jwt = JWT::encode($payload, JWT_SECRET, 'HS256');
 
         // Return the JWT to the client
         Flight::json([
