@@ -12,4 +12,4 @@ define('DB_PASS', '12nana123');
 define('DB_HOST', '127.0.0.1');
 
 // JWT Secret
-define('JWT_SECRET', 'PnB&6a=A!x9/.dR=E12gX5mzHFx%X*');
+define('JWT_SECRET', 'b3e28302fdc72b3aecde24d1849dbe55753e95617d8ac8e597d46726bcfeef61');

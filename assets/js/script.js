@@ -30,9 +30,10 @@ app.route({
   onReady: function () {
     var productId = localStorage.getItem("productId");
     $.ajax({
-      url: 'http://localhost:5501/backend/products/',
+      url: 'http://localhost:5501/backend/public/products',
       type: 'GET',
       dataType: 'json',
+      
       success: function (data) {
         const products = data.data;
         var product = products.find(p => p.id.toString() === productId);
@@ -81,7 +82,7 @@ app.route({
   load: "home.html",
   onReady: function () {
     $.ajax({
-      url: 'http://localhost:5501/backend/products', 
+      url: 'http://localhost:5501/backend/public/products', 
       type: 'GET',
       dataType: 'json',
       success: function (data) {
@@ -121,7 +122,7 @@ app.route({
   load: "shop.html",
   onReady: function () {
     $.ajax({
-      url: 'http://localhost:5501/backend/products',
+      url: 'http://localhost:5501/backend/public/products',
       type: 'GET',
       dataType: 'json',
       success: function (data) {
@@ -169,6 +170,9 @@ app.route({
       url: 'http://localhost:5501/backend/products',
       type: 'GET',
       dataType: 'json',
+      headers:{
+        "Authorization": JSON.parse(localStorage.getItem("user")).token
+      },
       success: function (data) {
         const products = data.data;
         var proContainer = $('#pro-container');
@@ -213,6 +217,9 @@ app.route({
     $.ajax({
       url: 'http://localhost:5501/backend/products',
       type: 'GET',
+      headers:{
+        "Authorization": JSON.parse(localStorage.getItem("user")).token
+      },
       dataType: 'json',
       success: function (data) {
         const products = data.data;
@@ -234,7 +241,6 @@ app.route({
   }
 });
 
-/*    ovdje dodati za DELETE, GET i to */
 
 
 app.route({

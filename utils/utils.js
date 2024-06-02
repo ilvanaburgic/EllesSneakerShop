@@ -63,7 +63,7 @@ var Utils = {
         url: url,
         type: "GET",
         headers: {
-          "Authentication": Utils.get_from_localstorage("user").token
+          "Authorization": Utils.get_from_localstorage("user").token
         }
       },
       lengthMenu: [
