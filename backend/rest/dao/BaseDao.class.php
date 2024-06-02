@@ -37,7 +37,7 @@ class BaseDao
         break;
     };
 
-    // Filter SQL injection attacks on column name
+
     $order_column = trim($this->connection->quote(substr($order, 1)), "'");
 
     return [$order_column, $order_direction];
@@ -72,7 +72,7 @@ class BaseDao
     $query .= ")";
 
     $stmt = $this->connection->prepare($query);
-    $stmt->execute($entity); // SQL injection prevention
+    $stmt->execute($entity); 
     $entity['id'] = $this->connection->lastInsertId();
     return $entity;
   }
