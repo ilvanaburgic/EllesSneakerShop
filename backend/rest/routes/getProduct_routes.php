@@ -13,9 +13,6 @@ Flight::set('product_service', new ProductService());
  *      path="/public/products",
  *      tags={"products"},
  *      summary="Get all products for user",
- *       security={
- *          {"ApiKey": {}}   
- *      },
  *      @OA\Response(
  *           response=200,
  *           description="Array of all products in the databases"
@@ -67,7 +64,7 @@ Flight::route('GET /public/products', function () {
  * @OA\Get(
  *      path="/products",
  *      tags={"products"},
- *      summary="Get all products for admin",
+ *      summary="Get all products for admin", 
  *       security={
  *          {"ApiKey": {}}   
  *      },
