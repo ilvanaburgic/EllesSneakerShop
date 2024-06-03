@@ -14,6 +14,4 @@ class NewsletterDao extends BaseDao
   {
     return $this->insert('newsletter_subscribers', $subscriber);
   }
-
-  // Other DAO methods can go here, like delete subscriber, get subscriber by email, etc.
 }
