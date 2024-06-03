@@ -37,7 +37,7 @@ class BaseDao
         break;
     };
 
-
+    // Filter SQL injection attacks on column name
     $order_column = trim($this->connection->quote(substr($order, 1)), "'");
 
     return [$order_column, $order_direction];
@@ -47,7 +47,7 @@ class BaseDao
   {
     $this->table = $table;
     try {
-      $this->connection = new PDO("mysql:host=" . Config::DB_HOST() . ";dbname=" . Config::DB_NAME() . ";charset=utf8;port=" . Config::DB_PORT(), Config::DB_USER(), Config::DB_PASS(), [
+      $this->connection = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=utf8;port=" . DB_PORT, DB_USER, DB_PASS, [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
       ]);
@@ -72,7 +72,7 @@ class BaseDao
     $query .= ")";
 
     $stmt = $this->connection->prepare($query);
-    $stmt->execute($entity); 
+    $stmt->execute($entity); // SQL injection prevention
     $entity['id'] = $this->connection->lastInsertId();
     return $entity;
   }

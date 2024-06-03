@@ -25,7 +25,7 @@ function AuthMiddleware() {
 
         // Dekodiranje tokena
         try {
-            $decoded = JWT::decode($token, new Key(Config::JWT_SECRET(), "HS256"));
+            $decoded = JWT::decode($token, new Key(JWT_SECRET, "HS256"));
         // Ako je token validan, postavlja se korisnik (user) u Flight promjenljivu <3
 
             Flight::set('user', $decoded);

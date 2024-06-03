@@ -104,7 +104,7 @@ Flight::route('POST /login', function() {
         ];
 
         // Encode the array to a JWT string
-        $jwt = JWT::encode($payload, Config::JWT_SECRET(), 'HS256');
+        $jwt = JWT::encode($payload, JWT_SECRET, 'HS256');
 
         // Return the JWT to the client
         Flight::json([
